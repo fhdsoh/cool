@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+<title>Дента Плюс премиум</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+  /* Layout: dark premium one-pager; big type hero, calculator, slot booking, floating AI assistant */
+  :root { --bg:#0e1b1f; --panel:#15272c; --panel2:#1c3238; --fg:#eef4f2; --muted:#9fb5b0; --accent:#7fe0c4; --warm:#f2a679; --line:#29434a;
+    --display:"Unbounded", "Arial Black", sans-serif; --body:"Golos Text", "Segoe UI", Roboto, Arial, sans-serif; color-scheme: dark }
+  * { box-sizing:border-box }
+  body { background:var(--bg); color:var(--fg); font:16px/1.6 var(--body) }
+  body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--bg) }
+  .in { max-width:1140px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px)) }
+  a { color:inherit }
+  .demo { background:var(--warm); color:#2a1405; font-size:13px; text-align:center; padding-block:6px }
+  header { position:sticky; top:env(safe-area-inset-top,0px); z-index:5; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line) }
+  header .in { display:flex; align-items:center; gap:20px; padding-block:14px }
+  .logo { font:700 18px var(--display); letter-spacing:-.02em } .logo i { font-style:normal; color:var(--accent) }
+  nav { display:flex; gap:22px; margin-left:auto; font-size:15px } nav a { text-decoration:none; color:var(--muted) } nav a:hover { color:var(--fg) }
+  .btn { display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:#06231b; padding:14px 26px; border-radius:999px; font:600 16px var(--body); text-decoration:none; border:0; cursor:pointer; transition:transform .2s }
+  .btn:hover { transform:translateY(-2px) }
+  .btn.ghost { background:transparent; color:var(--fg); border:1px solid var(--line) }
+  :focus-visible { outline:3px solid var(--warm); outline-offset:2px }
+  .hero { position:relative; overflow:hidden }
+  .hero canvas { position:absolute; inset:0; width:100%; height:100%; opacity:.55 }
+  .hero .in { position:relative; padding-block:72px 64px }
+  .eyebrow { font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent) }
+  .hero h1 { font:700 clamp(32px,6.4vw,76px)/1.02 var(--display); letter-spacing:-.04em; margin:14px 0 22px; max-width:900px; text-wrap:balance }
+  .hero h1 em { font-style:normal; color:var(--warm) }
+  .hero p { color:var(--muted); font-size:19px; max-width:560px; margin:0 0 30px }
+  .actions { display:flex; gap:12px; flex-wrap:wrap }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden; margin-top:56px }
+  .stats div { background:var(--panel); padding:20px }
+  .stats b { display:block; font:700 28px var(--display); font-variant-numeric:tabular-nums } .stats span { color:var(--muted); font-size:14px }
+  section .in { padding-block:64px }
+  h2 { font:700 clamp(24px,3.6vw,40px)/1.15 var(--display); letter-spacing:-.03em; margin:0 0 28px; text-wrap:balance }
+  .tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px }
+  .tab { background:var(--panel); color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:9px 18px; font:500 15px var(--body); cursor:pointer }
+  .tab[aria-selected="true"] { background:var(--fg); color:var(--bg) }
+  .rows { border-top:1px solid var(--line) }
+  .row { display:grid; grid-template-columns:1fr auto auto; gap:16px; align-items:center; padding-block:16px; border-bottom:1px solid var(--line) }
+  .row small { display:block; color:var(--muted) }
+  .row .pr { font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap }
+  .add { width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:transparent; color:var(--fg); font-size:20px; cursor:pointer }
+  .add.on { background:var(--accent); color:#06231b; border-color:var(--accent) }
+  .calc { margin-top:20px; background:var(--panel2); border:1px solid var(--line); border-radius:16px; padding:16px 20px; display:flex; gap:16px; align-items:center; flex-wrap:wrap }
+  .calc b { font:700 24px var(--display); font-variant-numeric:tabular-nums }
+  .calc span { color:var(--muted); font-size:14px; flex:1; min-width:180px }
+  .ba { position:relative; aspect-ratio:16/9; max-width:100%; border-radius:18px; overflow:hidden; border:1px solid var(--line); user-select:none }
+  .ba .side { position:absolute; inset:0; display:flex; align-items:flex-start; padding:20px 24px; font:700 22px var(--display) }
+  .ba .before { background:repeating-linear-gradient(90deg,#c8b48a 0 9%,#a8925f 9% 10%) ; color:#3b2c0d }
+  .ba .after { justify-content:flex-end; background:repeating-linear-gradient(90deg,#f7f6ef 0 9%,#d9dcd6 9% 10%); color:#0e1b1f; clip-path:inset(0 0 0 50%) }
+  .ba input { position:absolute; inset:auto 0 12px; width:90%; margin:0 auto; left:0; right:0 }
+  .note { color:var(--muted); font-size:13px; margin-top:10px }
+  .docs { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px }
+  .doc { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:22px; min-width:0 }
+  .doc .ava { width:64px; height:64px; border-radius:16px; background:linear-gradient(135deg,var(--accent),var(--warm)); display:grid; place-items:center; font:700 20px var(--display); color:#06231b; margin-bottom:14px }
+  .doc p { margin:0 } .doc .r { color:var(--muted); font-size:14px }
+  .book { display:grid; grid-template-columns:1.1fr .9fr; gap:28px }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:24px; min-width:0 }
+  .days, .times { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 18px }
+  .chip { background:var(--panel2); border:1px solid var(--line); color:var(--fg); border-radius:12px; padding:10px 14px; font:500 14px var(--body); cursor:pointer; font-variant-numeric:tabular-nums }
+  .chip[aria-pressed="true"] { background:var(--accent); color:#06231b; border-color:var(--accent) }
+  .chip:disabled { opacity:.35; cursor:not-allowed; text-decoration:line-through }
+  label { font-size:14px; color:var(--muted) }
+  input[type=text], input[type=tel], select { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:12px; font:inherit; background:var(--panel2); color:var(--fg); margin:6px 0 12px }
+  .agree { display:flex; gap:8px; font-size:13px; margin-bottom:14px }
+  .ok { color:var(--accent); font-weight:600; margin-top:12px }
+  details { border-bottom:1px solid var(--line); padding-block:16px } summary { cursor:pointer; font-weight:600; font-size:17px } details p { color:var(--muted); margin:10px 0 0 }
+  footer { border-top:1px solid var(--line); color:var(--muted); font-size:13px } footer .in { padding-block:28px }
+  /* chat */
+  .fab { position:fixed; right:calc(18px + env(safe-area-inset-right,0px)); bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:20; box-shadow:0 10px 30px rgba(0,0,0,.4) }
+  .chat { position:fixed; right:calc(18px + env(safe-area-inset-right,0px)); bottom:calc(84px + env(safe-area-inset-bottom,0px)); z-index:20; width:min(380px, calc(100vw - 32px)); height:min(540px, 70vh); background:var(--panel); border:1px solid var(--line); border-radius:20px; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.5) }
+  .chat .top { padding:14px 16px; background:var(--panel2); display:flex; justify-content:space-between; align-items:center }
+  .chat .top b { font:700 14px var(--display) } .chat .top small { display:block; color:var(--accent); font-size:12px }
+  .x { background:none; border:0; color:var(--muted); font-size:22px; cursor:pointer }
+  .msgs { flex:1; overflow-y:auto; padding:14px; display:flex; flex-direction:column; gap:10px }
+  .m { max-width:85%; padding:10px 13px; border-radius:14px; font-size:15px; white-space:pre-wrap }
+  .m.bot { background:var(--panel2); align-self:flex-start; border-bottom-left-radius:4px }
+  .m.me { background:var(--accent); color:#06231b; align-self:flex-end; border-bottom-right-radius:4px }
+  .m.card { background:transparent; border:1px solid var(--accent); color:var(--fg) }
+  .quick { display:flex; gap:6px; flex-wrap:wrap; padding:0 14px 10px }
+  .quick button { background:none; border:1px solid var(--line); color:var(--muted); border-radius:999px; padding:6px 12px; font:13px var(--body); cursor:pointer }
+  .send { display:flex; gap:8px; padding:12px; border-top:1px solid var(--line) }
+  .send input { flex:1; min-width:0; padding:11px 12px; border-radius:12px; border:1px solid var(--line); background:var(--panel2); color:var(--fg); font:inherit }
+  .send button { background:var(--accent); border:0; border-radius:12px; padding:0 16px; font-weight:600; color:#06231b; cursor:pointer }
+  @media (max-width:800px) { nav { display:none } .stats { grid-template-columns:repeat(2,1fr) } .book { grid-template-columns:1fr } .row { grid-template-columns:1fr auto } .row .pr { grid-column:1 } }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important } }
+</style>
+
+<div class="demo">Демо-шаблон: название, врачи и цены примерные, заменим на данные клиники</div>
+<header><div class="in">
+  <span class="logo">дента<i>+</i></span>
+  <nav><a href="#ceny">Цены</a><a href="#rezultat">Результат</a><a href="#vrachi">Врачи</a><a href="#voprosy">Вопросы</a></nav>
+  <a class="btn" href="#zapis">Записаться</a>
+</div></header>
+
+<div class="hero"><canvas id="cv" aria-hidden="true"></canvas><div class="in">
+  <div class="eyebrow">Стоматология · Краснодар</div>
+  <h1>Улыбка, которую <em>не хочется</em> прятать</h1>
+  <p>Лечение без боли, импланты под ключ и честная смета до начала работы. Запишитесь онлайн за минуту или спросите ассистента.</p>
+  <div class="actions"><a class="btn" href="#zapis">Выбрать время</a><button class="btn ghost" id="askBtn" type="button">Спросить ассистента</button></div>
+  <div class="stats">
+    <div><b>12</b><span>лет работаем</span></div>
+    <div><b>4,9★</b><span>оценка в 2ГИС</span></div>
+    <div><b>8 000+</b><span>пациентов</span></div>
+    <div><b>5 лет</b><span>гарантия на импланты</span></div>
+  </div>
+</div></div>
+
+<section id="ceny"><div class="in">
+  <h2>Цены и расчёт стоимости</h2>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="rows" id="rows"></div>
+  <div class="calc"><b id="sum">0 ₽</b><span id="sumNote">Нажмите «+» у услуг, чтобы посчитать примерную стоимость</span><a class="btn" href="#zapis">Записаться</a></div>
+</div></section>
+
+<section id="rezultat"><div class="in">
+  <h2>До и после</h2>
+  <div class="ba"><div class="side before">ДО</div><div class="side after" id="after">ПОСЛЕ</div><input type="range" id="baR" min="0" max="100" value="50" aria-label="Сравнить до и после"></div>
+  <p class="note">Здесь будут реальные фото работ клиники. Потяните ползунок.</p>
+</div></section>
+
+<section id="vrachi"><div class="in">
+  <h2>Врачи</h2>
+  <div class="docs">
+    <div class="doc"><div class="ava">АК</div><p><b>Анна Кузнецова</b></p><p class="r">Терапевт · 12 лет · лечение под микроскопом</p></div>
+    <div class="doc"><div class="ava">ИМ</div><p><b>Игорь Морозов</b></p><p class="r">Хирург-имплантолог · 15 лет · 2 000+ имплантов</p></div>
+    <div class="doc"><div class="ava">МД</div><p><b>Мария Дмитриева</b></p><p class="r">Детский стоматолог · 8 лет · приём в игровой форме</p></div>
+  </div>
+</div></section>
+
+<section id="zapis"><div class="in">
+  <h2>Онлайн-запись</h2>
+  <div class="book">
+    <form class="panel" id="f">
+      <label>День</label><div class="days" id="days"></div>
+      <label>Время</label><div class="times" id="times"></div>
+      <label for="n">Имя</label><input type="text" id="n" required placeholder="Анна">
+      <label for="p">Телефон</label><input type="tel" id="p" required placeholder="+7 900 000-00-00">
+      <label for="s">Услуга</label><select id="s"><option>Консультация</option><option>Лечение</option><option>Чистка</option><option>Удаление</option><option>Импланты и коронки</option><option>Детский приём</option></select>
+      <label class="agree"><input type="checkbox" id="a" required> Согласен с политикой обработки персональных данных</label>
+      <button class="btn" type="submit">Записаться</button>
+      <div class="ok" id="ok" hidden></div>
+    </form>
+    <div class="panel">
+      <p class="eyebrow">Контакты</p>
+      <p>г. Краснодар, ул. Примерная, 1</p>
+      <p><a href="tel:+79000000000">+7 (900) 000-00-00</a> · <a href="https://wa.me/79000000000">WhatsApp</a></p>
+      <p>Пн–Пт 9:00–20:00<br>Сб 9:00–16:00<br>Вс выходной</p>
+      <p><a href="https://yandex.ru/maps/?text=Краснодар">Как добраться</a></p>
+    </div>
+  </div>
+</div></section>
+
+<section id="voprosy"><div class="in">
+  <h2>Частые вопросы</h2>
+  <details><summary>Больно ли лечить зубы?</summary><p>Нет. Используем современную анестезию, укол почти не чувствуется.</p></details>
+  <details><summary>Есть ли рассрочка?</summary><p>Да, на импланты и протезирование, без переплаты.</p></details>
+  <details><summary>Даёте ли справку для налогового вычета?</summary><p>Да, выдаём документы для возврата 13%.</p></details>
+</div></section>
+
+<footer><div class="in">ООО «Дента Плюс» · ИНН 0000000000 · Лицензия № Л041-00000-00/00000000 (пример) · Политика обработки персональных данных<br>Имеются противопоказания, необходима консультация специалиста.</div></footer>
+
+<button class="btn fab" id="fab" type="button">Ассистент</button>
+<div class="chat" id="chat" hidden>
+  <div class="top"><div><b>Ассистент Дента+</b><small>отвечает круглосуточно</small></div><button class="x" id="cx" type="button" aria-label="Закрыть">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="quick" id="quick"><button type="button">Сколько стоит имплант?</button><button type="button">Записаться</button><button type="button">Часы работы</button></div>
+  <form class="send" id="sf"><input id="si" placeholder="Напишите вопрос…" autocomplete="off"><button type="submit">→</button></form>
+</div>
+
+<script>
+const CLINIC = {
+  name: "Дента Плюс", address: "г. Краснодар, ул. Примерная, 1", phone: "+7 (900) 000-00-00",
+  hours: "Пн–Пт 9:00–20:00, Сб 9:00–16:00, Вс выходной",
+  prices: {
+    "Терапия": [["Консультация и план лечения","",500],["Лечение кариеса","пломба светового отверждения",4900],["Лечение каналов","под микроскопом",9500]],
+    "Гигиена": [["Профессиональная чистка","ультразвук + Air Flow",4500],["Отбеливание","Zoom, 1 визит",15000]],
+    "Хирургия": [["Удаление зуба","простое",2500],["Удаление зуба мудрости","",6000]],
+    "Протезирование": [["Коронка металлокерамика","",14000],["Коронка цирконий","",25000],["Имплант под ключ","имплант + коронка",45000]]
+  }
+};
+const rub = n => n.toLocaleString("ru-RU") + " ₽";
+
+/* prices + calculator */
+const picked = new Map(); let cur = Object.keys(CLINIC.prices)[0];
+const tabs = document.getElementById("tabs"), rows = document.getElementById("rows");
+function renderTabs(){ tabs.innerHTML=""; for (const k of Object.keys(CLINIC.prices)) { const b=document.createElement("button"); b.className="tab"; b.type="button"; b.textContent=k; b.setAttribute("role","tab"); b.setAttribute("aria-selected", k===cur); b.onclick=()=>{cur=k;renderTabs();renderRows();}; tabs.append(b);} }
+function renderRows(){ rows.innerHTML=""; for (const [t,d,p] of CLINIC.prices[cur]) { const r=document.createElement("div"); r.className="row";
+  r.innerHTML=`<div><span></span><small></small></div><span class="pr">${p>=4900&&cur!=="Гигиена"?"от ":""}${rub(p)}</span>`; r.querySelector("span").textContent=t; r.querySelector("small").textContent=d;
+  const b=document.createElement("button"); b.type="button"; b.className="add"+(picked.has(t)?" on":""); b.textContent=picked.has(t)?"✓":"+"; b.setAttribute("aria-label","Добавить в расчёт: "+t);
+  b.onclick=()=>{ picked.has(t)?picked.delete(t):picked.set(t,p); renderRows(); renderSum(); }; r.append(b); rows.append(r);} }
+function renderSum(){ let s=0; picked.forEach(v=>s+=v); document.getElementById("sum").textContent=rub(s);
+  document.getElementById("sumNote").textContent = picked.size ? [...picked.keys()].join(", ") + ". Точную цену врач назовёт на консультации." : "Нажмите «+» у услуг, чтобы посчитать примерную стоимость"; }
+renderTabs(); renderRows();
+
+/* before/after */
+document.getElementById("baR").oninput = e => document.getElementById("after").style.clipPath = `inset(0 0 0 ${e.target.value}%)`;
+
+/* booking slots (demo: some slots busy) */
+const daysEl=document.getElementById("days"), timesEl=document.getElementById("times"); let selDay=null, selTime=null;
+const wd=["Вс","Пн","Вт","Ср","Чт","Пт","Сб"]; const days=[]; for(let i=0, d=new Date(); days.length<6; i++){ const x=new Date(d); x.setDate(d.getDate()+i); if(x.getDay()!==0) days.push(x); }
+function renderDays(){ daysEl.innerHTML=""; days.forEach((x,i)=>{ const b=document.createElement("button"); b.type="button"; b.className="chip"; b.textContent=`${wd[x.getDay()]} ${x.getDate()}.${String(x.getMonth()+1).padStart(2,"0")}`; b.setAttribute("aria-pressed", selDay===i); b.onclick=()=>{selDay=i; selTime=null; renderDays(); renderTimes();}; daysEl.append(b); }); }
+function renderTimes(){ timesEl.innerHTML=""; if(selDay===null){ timesEl.textContent="Сначала выберите день"; return; } const sat=days[selDay].getDay()===6; const end=sat?16:20;
+  for(let h=9; h<end; h++){ const t=`${h}:00`; const busy=(h*7+selDay*3)%5===0; const b=document.createElement("button"); b.type="button"; b.className="chip"; b.textContent=t; b.disabled=busy; b.setAttribute("aria-pressed", selTime===t); b.onclick=()=>{selTime=t; renderTimes();}; timesEl.append(b);} }
+renderDays(); renderTimes();
+document.getElementById("f").addEventListener("submit", e => { e.preventDefault(); const ok=document.getElementById("ok");
+  if(selDay===null||!selTime){ ok.hidden=false; ok.textContent="Выберите день и время."; return; }
+  ok.hidden=false; ok.textContent=`Готово! Вы записаны на ${daysEl.children[selDay].textContent} в ${selTime}. Администратор подтвердит запись звонком.`; });
+
+/* hero canvas: slow drifting soft dots */
+(() => { const c=document.getElementById("cv"), x=c.getContext("2d"); if(!x) return; const dots=Array.from({length:40},()=>({x:Math.random(),y:Math.random(),r:2+Math.random()*60,v:.0002+Math.random()*.0006}));
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function draw(){ c.width=c.clientWidth; c.height=c.clientHeight; x.clearRect(0,0,c.width,c.height);
+    for(const d of dots){ d.y-=still?0:d.v; if(d.y<-.1) d.y=1.1; const g=x.createRadialGradient(d.x*c.width,d.y*c.height,0,d.x*c.width,d.y*c.height,d.r); g.addColorStop(0,"rgba(127,224,196,.35)"); g.addColorStop(1,"rgba(127,224,196,0)"); x.fillStyle=g; x.beginPath(); x.arc(d.x*c.width,d.y*c.height,d.r,0,7); x.fill(); }
+    if(!still) requestAnimationFrame(draw); }
+  draw(); })();
+
+/* assistant */
+const chat=document.getElementById("chat"), msgs=document.getElementById("msgs"), si=document.getElementById("si"); const history=[];
+let ai=null; (async()=>{ try{ ai = window.claude?.use ? await window.claude.use("sample") : null; }catch{ ai=null; } })();
+function add(text, who, cls=""){ const m=document.createElement("div"); m.className=`m ${who} ${cls}`; m.textContent=text; msgs.append(m); msgs.scrollTop=msgs.scrollHeight; return m; }
+function openChat(){ chat.hidden=false; if(!msgs.children.length) add("Здравствуйте! Я ассистент клиники «Дента Плюс». Подскажу цены, часы работы и запишу на приём.","bot"); si.focus(); }
+document.getElementById("fab").onclick=()=> chat.hidden ? openChat() : (chat.hidden=true);
+document.getElementById("askBtn").onclick=openChat; document.getElementById("cx").onclick=()=>chat.hidden=true;
+document.querySelectorAll("#quick button").forEach(b=>b.onclick=()=>ask(b.textContent));
+document.getElementById("sf").addEventListener("submit", e=>{ e.preventDefault(); const t=si.value.trim(); if(t){ si.value=""; ask(t); } });
+
+const priceText = Object.entries(CLINIC.prices).map(([k,l])=>k+": "+l.map(([t,,p])=>`${t} ${rub(p)}`).join("; ")).join("\n");
+const SYSTEM = `Ты администратор стоматологии «${CLINIC.name}». Адрес: ${CLINIC.address}. Телефон: ${CLINIC.phone}. Часы: ${CLINIC.hours}.
+Цены (ориентир, точную цену называет врач):\n${priceText}
+Правила: отвечай по-русски, коротко и тепло, 1–3 предложения. Не ставь диагнозы, при острой боли советуй прийти сегодня или позвонить. Не выдумывай то, чего нет в данных: предложи уточнить у администратора по телефону.
+Если человек хочет записаться, по очереди узнай имя, телефон, услугу и удобный день/время. Когда всё известно, в конце ответа добавь отдельную строку: ЗАЯВКА: имя | телефон | услуга | день и время`;
+
+let step=null, form={};
+function scripted(q){ const s=q.toLowerCase();
+  if(step){ form[step]=q; const order=["имя","телефон","услуга","время"]; const i=order.indexOf(step);
+    if(i<order.length-1){ step=order[i+1]; return {"телефон":"Ваш номер телефона?","услуга":"На какую услугу записать? Например: консультация, лечение, чистка.","время":"Какой день и время вам удобны?"}[step]; }
+    step=null; return `Спасибо! Передаю администратору.\nЗАЯВКА: ${form["имя"]} | ${form["телефон"]} | ${form["услуга"]} | ${form["время"]}`; }
+  if(/запис|приём|прием/.test(s)){ step="имя"; form={}; return "С радостью запишу. Как вас зовут?"; }
+  if(/имплант/.test(s)) return "Имплант под ключ (имплант + коронка) от 45 000 ₽, гарантия 5 лет. Есть рассрочка. Записать на консультацию за 500 ₽?";
+  if(/чистк|гигиен/.test(s)) return "Профессиональная чистка (ультразвук + Air Flow) стоит 4 500 ₽ и занимает около часа.";
+  if(/кариес|пломб|лечен/.test(s)) return "Лечение кариеса от 4 900 ₽, каналов от 9 500 ₽. Точную цену врач скажет после осмотра.";
+  if(/удал|мудр/.test(s)) return "Удаление зуба от 2 500 ₽, зуба мудрости от 6 000 ₽.";
+  if(/коронк|винир/.test(s)) return "Коронка из металлокерамики от 14 000 ₽, из циркония от 25 000 ₽.";
+  if(/час|работ|время|выходн|суббот/.test(s)) return `Мы работаем: ${CLINIC.hours}.`;
+  if(/адрес|где|доехать/.test(s)) return `Адрес: ${CLINIC.address}.`;
+  if(/бол|остр|флюс/.test(s)) return `Сочувствую. При острой боли лучше прийти сегодня. Позвоните: ${CLINIC.phone}, найдём окно.`;
+  if(/цен|стоит|прайс/.test(s)) return "Консультация 500 ₽, чистка 4 500 ₽, кариес от 4 900 ₽, имплант от 45 000 ₽. Про какую услугу рассказать подробнее?";
+  return `Уточню у администратора. Можно позвонить: ${CLINIC.phone}. Или напишите «записаться», и я запишу вас.`; }
+
+async function ask(q){ add(q,"me"); history.push({role:"user",content:q}); let text;
+  const wait=add("…","bot");
+  if(ai){ try{ const r=await ai([{role:"user",content:SYSTEM+"\n\nДиалог:\n"+history.map(h=>(h.role==="user"?"Пациент: ":"Ассистент: ")+h.content).join("\n")+"\nАссистент:"}],{modelTier:"quick",cache:false}); text=r.text.trim(); }catch{ text=scripted(q); } }
+  else { await new Promise(r=>setTimeout(r,450)); text=scripted(q); }
+  wait.remove(); history.push({role:"assistant",content:text});
+  const [main, req] = text.split(/\n?ЗАЯВКА:/); add(main.trim(),"bot");
+  if(req){ const [n,p,u,t]=req.split("|").map(x=>x.trim()); add(`Заявка для администратора\nИмя: ${n}\nТелефон: ${p}\nУслуга: ${u}\nКогда: ${t}`,"bot","card"); } }
+</script>
+
+</body>
+</html>
