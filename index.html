@@ -6,7 +6,7 @@
 <style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
 </head>
 <body>
-<title>Дента Плюс премиум</title>
+<title>Сенетта премиум</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&display=swap">
 <style>
@@ -92,20 +92,44 @@
   .send button { background:var(--accent); border:0; border-radius:12px; padding:0 16px; font-weight:600; color:#06231b; cursor:pointer }
   @media (max-width:800px) { nav { display:none } .stats { grid-template-columns:repeat(2,1fr) } .book { grid-template-columns:1fr } .row { grid-template-columns:1fr auto } .row .pr { grid-column:1 } }
   @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important } }
+  .promos { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px }
+  .promo { border-radius:20px; padding:24px; background:var(--panel); border:1px solid var(--line); min-width:0 }
+  .promo.hot { background:linear-gradient(135deg, var(--warm), #e7845a); color:#2a1405; border:0 }
+  .promo b { display:block; font:700 30px var(--display); margin:6px 0 } .promo p { margin:0; opacity:.85 }
+  .tag { font-size:12px; letter-spacing:.12em; text-transform:uppercase }
+  .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--line) }
+  .step { padding:22px 20px 0 0; min-width:0 } .step i { font:700 15px var(--display); font-style:normal; color:var(--accent) }
+  .step h3 { margin:8px 0 6px; font-size:18px } .step p { margin:0; color:var(--muted); font-size:15px }
+  .revs { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px }
+  .rev { flex:0 0 min(340px, 85%); scroll-snap-align:start; background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:22px }
+  .rev .st { color:var(--warm); letter-spacing:2px } .rev q { display:block; margin:10px 0 }
+  .rev small { color:var(--muted) }
+  .doc .go { margin-top:14px; background:none; border:1px solid var(--line); color:var(--fg); border-radius:999px; padding:8px 14px; font:500 14px var(--body); cursor:pointer }
+  .doc .go:hover { border-color:var(--accent); color:var(--accent) }
+  .typing span { display:inline-block; width:6px; height:6px; margin:0 2px; border-radius:50%; background:var(--muted); animation:blink 1s infinite }
+  .typing span:nth-child(2) { animation-delay:.2s } .typing span:nth-child(3) { animation-delay:.4s }
+  @keyframes blink { 50% { opacity:.2 } }
+  .fade { animation:up .8s ease both } @keyframes up { from { transform:translateY(14px) } to { transform:none } }
+  .mbar { position:fixed; left:0; right:0; bottom:0; z-index:19; display:none; gap:8px; background:var(--panel); border-top:1px solid var(--line);
+    padding:10px max(16px, env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px)) }
+  .mbar .btn { flex:1; justify-content:center; padding:12px }
+  @media (max-width:800px) { .steps { grid-template-columns:1fr 1fr } .mbar { display:flex } body { padding-bottom:72px }
+    .fab { bottom:calc(84px + env(safe-area-inset-bottom,0px)) } .chat { bottom:calc(150px + env(safe-area-inset-bottom,0px)); height:min(500px, 60vh) } }
 </style>
 
-<div class="demo">Демо-шаблон: название, врачи и цены примерные, заменим на данные клиники</div>
+<div class="demo">Демо-шаблон: клиника выдуманная, данные примерные</div>
 <header><div class="in">
-  <span class="logo">дента<i>+</i></span>
+  <span class="logo">сенетта<i>.</i></span>
   <nav><a href="#ceny">Цены</a><a href="#rezultat">Результат</a><a href="#vrachi">Врачи</a><a href="#voprosy">Вопросы</a></nav>
   <a class="btn" href="#zapis">Записаться</a>
 </div></header>
 
 <div class="hero"><canvas id="cv" aria-hidden="true"></canvas><div class="in">
-  <div class="eyebrow">Стоматология · Краснодар</div>
+  <div class="fade"><div class="eyebrow">Стоматология «Сенетта» · Краснодар</div>
   <h1>Улыбка, которую <em>не хочется</em> прятать</h1>
   <p>Лечение без боли, импланты под ключ и честная смета до начала работы. Запишитесь онлайн за минуту или спросите ассистента.</p>
   <div class="actions"><a class="btn" href="#zapis">Выбрать время</a><button class="btn ghost" id="askBtn" type="button">Спросить ассистента</button></div>
+  </div>
   <div class="stats">
     <div><b>12</b><span>лет работаем</span></div>
     <div><b>4,9★</b><span>оценка в 2ГИС</span></div>
@@ -113,6 +137,15 @@
     <div><b>5 лет</b><span>гарантия на импланты</span></div>
   </div>
 </div></div>
+
+<section><div class="in">
+  <h2>Предложения ноября</h2>
+  <div class="promos">
+    <div class="promo hot"><span class="tag">Акция</span><b>3 500 ₽</b><p>Профессиональная чистка вместо 4 500 ₽</p></div>
+    <div class="promo"><span class="tag">Импланты</span><b>0 ₽</b><p>Переплаты: рассрочка до 12 месяцев</p></div>
+    <div class="promo"><span class="tag">Налоги</span><b>13%</b><p>Вернёте вычетом, документы выдадим за 1 день</p></div>
+  </div>
+</div></section>
 
 <section id="ceny"><div class="in">
   <h2>Цены и расчёт стоимости</h2>
@@ -127,13 +160,34 @@
   <p class="note">Здесь будут реальные фото работ клиники. Потяните ползунок.</p>
 </div></section>
 
+<section><div class="in">
+  <h2>Как проходит лечение</h2>
+  <div class="steps">
+    <div class="step"><i>01</i><h3>Консультация</h3><p>Осмотр и 3D-снимок, 30 минут.</p></div>
+    <div class="step"><i>02</i><h3>Смета</h3><p>План по этапам с точной ценой. Цена не растёт.</p></div>
+    <div class="step"><i>03</i><h3>Лечение</h3><p>Под анестезией, в удобное время.</p></div>
+    <div class="step"><i>04</i><h3>Гарантия</h3><p>Год на пломбы, 5 лет на импланты.</p></div>
+  </div>
+</div></section>
+
 <section id="vrachi"><div class="in">
   <h2>Врачи</h2>
   <div class="docs">
-    <div class="doc"><div class="ava">АК</div><p><b>Анна Кузнецова</b></p><p class="r">Терапевт · 12 лет · лечение под микроскопом</p></div>
-    <div class="doc"><div class="ava">ИМ</div><p><b>Игорь Морозов</b></p><p class="r">Хирург-имплантолог · 15 лет · 2 000+ имплантов</p></div>
-    <div class="doc"><div class="ava">МД</div><p><b>Мария Дмитриева</b></p><p class="r">Детский стоматолог · 8 лет · приём в игровой форме</p></div>
+    <div class="doc"><div class="ava">АК</div><p><b>Анна Кузнецова</b></p><p class="r">Терапевт · 12 лет · лечение под микроскопом</p><button class="go" type="button">Записаться к врачу</button></div>
+    <div class="doc"><div class="ava">ИМ</div><p><b>Игорь Морозов</b></p><p class="r">Хирург-имплантолог · 15 лет · 2 000+ имплантов</p><button class="go" type="button">Записаться к врачу</button></div>
+    <div class="doc"><div class="ava">МД</div><p><b>Мария Дмитриева</b></p><p class="r">Детский стоматолог · 8 лет · приём в игровой форме</p><button class="go" type="button">Записаться к врачу</button></div>
   </div>
+</div></section>
+
+<section><div class="in">
+  <h2>Отзывы пациентов</h2>
+  <div class="revs">
+    <div class="rev"><span class="st">★★★★★</span><q>Боялась идти, но лечение прошло совсем без боли. Врач всё объяснила.</q><small>Пример отзыва</small></div>
+    <div class="rev"><span class="st">★★★★★</span><q>Поставил имплант, цена совпала с той, что назвали на консультации.</q><small>Пример отзыва</small></div>
+    <div class="rev"><span class="st">★★★★★</span><q>Водим сюда детей, ребёнок ждёт следующего визита.</q><small>Пример отзыва</small></div>
+    <div class="rev"><span class="st">★★★★★</span><q>Записался через ассистента на сайте в 11 вечера, утром подтвердили.</q><small>Пример отзыва</small></div>
+  </div>
+  <p class="note">Сюда вставим настоящие отзывы клиники из 2ГИС и Яндекс Карт. Листайте вбок.</p>
 </div></section>
 
 <section id="zapis"><div class="in">
@@ -166,11 +220,12 @@
   <details><summary>Даёте ли справку для налогового вычета?</summary><p>Да, выдаём документы для возврата 13%.</p></details>
 </div></section>
 
-<footer><div class="in">ООО «Дента Плюс» · ИНН 0000000000 · Лицензия № Л041-00000-00/00000000 (пример) · Политика обработки персональных данных<br>Имеются противопоказания, необходима консультация специалиста.</div></footer>
+<footer><div class="in">ООО «Сенетта» · ИНН 0000000000 · Лицензия № Л041-00000-00/00000000 (пример) · Политика обработки персональных данных<br>Имеются противопоказания, необходима консультация специалиста.</div></footer>
 
+<div class="mbar"><a class="btn ghost" href="tel:+79000000000">Позвонить</a><a class="btn" href="#zapis">Записаться</a></div>
 <button class="btn fab" id="fab" type="button">Ассистент</button>
 <div class="chat" id="chat" hidden>
-  <div class="top"><div><b>Ассистент Дента+</b><small>отвечает круглосуточно</small></div><button class="x" id="cx" type="button" aria-label="Закрыть">×</button></div>
+  <div class="top"><div><b>Ассистент «Сенетты»</b><small>отвечает круглосуточно</small></div><button class="x" id="cx" type="button" aria-label="Закрыть">×</button></div>
   <div class="msgs" id="msgs"></div>
   <div class="quick" id="quick"><button type="button">Сколько стоит имплант?</button><button type="button">Записаться</button><button type="button">Часы работы</button></div>
   <form class="send" id="sf"><input id="si" placeholder="Напишите вопрос…" autocomplete="off"><button type="submit">→</button></form>
@@ -178,7 +233,7 @@
 
 <script>
 const CLINIC = {
-  name: "Дента Плюс", address: "г. Краснодар, ул. Примерная, 1", phone: "+7 (900) 000-00-00",
+  name: "Сенетта", address: "г. Краснодар, ул. Примерная, 1", phone: "+7 (900) 000-00-00",
   hours: "Пн–Пт 9:00–20:00, Сб 9:00–16:00, Вс выходной",
   prices: {
     "Терапия": [["Консультация и план лечения","",500],["Лечение кариеса","пломба светового отверждения",4900],["Лечение каналов","под микроскопом",9500]],
@@ -215,6 +270,7 @@ document.getElementById("f").addEventListener("submit", e => { e.preventDefault(
   if(selDay===null||!selTime){ ok.hidden=false; ok.textContent="Выберите день и время."; return; }
   ok.hidden=false; ok.textContent=`Готово! Вы записаны на ${daysEl.children[selDay].textContent} в ${selTime}. Администратор подтвердит запись звонком.`; });
 
+document.querySelectorAll(".doc .go").forEach((b,i)=>b.onclick=()=>{ const sel=document.getElementById("s"); sel.value=["Лечение","Импланты и коронки","Детский приём"][i]; document.getElementById("zapis").scrollIntoView({behavior:"smooth"}); });
 /* hero canvas: slow drifting soft dots */
 (() => { const c=document.getElementById("cv"), x=c.getContext("2d"); if(!x) return; const dots=Array.from({length:40},()=>({x:Math.random(),y:Math.random(),r:2+Math.random()*60,v:.0002+Math.random()*.0006}));
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -227,7 +283,7 @@ document.getElementById("f").addEventListener("submit", e => { e.preventDefault(
 const chat=document.getElementById("chat"), msgs=document.getElementById("msgs"), si=document.getElementById("si"); const history=[];
 let ai=null; (async()=>{ try{ ai = window.claude?.use ? await window.claude.use("sample") : null; }catch{ ai=null; } })();
 function add(text, who, cls=""){ const m=document.createElement("div"); m.className=`m ${who} ${cls}`; m.textContent=text; msgs.append(m); msgs.scrollTop=msgs.scrollHeight; return m; }
-function openChat(){ chat.hidden=false; if(!msgs.children.length) add("Здравствуйте! Я ассистент клиники «Дента Плюс». Подскажу цены, часы работы и запишу на приём.","bot"); si.focus(); }
+function openChat(){ chat.hidden=false; if(!msgs.children.length) add("Здравствуйте! Я ассистент клиники «Сенетта». Подскажу цены, часы работы и запишу на приём.","bot"); si.focus(); }
 document.getElementById("fab").onclick=()=> chat.hidden ? openChat() : (chat.hidden=true);
 document.getElementById("askBtn").onclick=openChat; document.getElementById("cx").onclick=()=>chat.hidden=true;
 document.querySelectorAll("#quick button").forEach(b=>b.onclick=()=>ask(b.textContent));
@@ -257,7 +313,7 @@ function scripted(q){ const s=q.toLowerCase();
   return `Уточню у администратора. Можно позвонить: ${CLINIC.phone}. Или напишите «записаться», и я запишу вас.`; }
 
 async function ask(q){ add(q,"me"); history.push({role:"user",content:q}); let text;
-  const wait=add("…","bot");
+  const wait=add("","bot","typing"); wait.innerHTML="<span></span><span></span><span></span>";
   if(ai){ try{ const r=await ai([{role:"user",content:SYSTEM+"\n\nДиалог:\n"+history.map(h=>(h.role==="user"?"Пациент: ":"Ассистент: ")+h.content).join("\n")+"\nАссистент:"}],{modelTier:"quick",cache:false}); text=r.text.trim(); }catch{ text=scripted(q); } }
   else { await new Promise(r=>setTimeout(r,450)); text=scripted(q); }
   wait.remove(); history.push({role:"assistant",content:text});
